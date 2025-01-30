@@ -17,11 +17,56 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        collectionView.collectionViewLayout = mainLayout()
     }
     
     private func setup() {
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    private func mainLayout() -> UICollectionViewCompositionalLayout {
+        let layout = UICollectionViewCompositionalLayout{ [weak self] (index, environment) -> NSCollectionLayoutSection? in
+            return self?.createdSectionLayout(index: index, environment: environment)
+        }
+        
+        return layout
+    }
+    
+    private func createdSectionLayout(index:Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
+        switch index {
+        case 0:
+            return createdFirsSection()
+        case 1:
+            return createdSecondSection()
+        default:
+            return createdFirsSection()
+        }
+    }
+    
+    private func createdFirsSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.85), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.4))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        
+        return section
+    }
+    
+    private func createdSecondSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .fractionalHeight(0.3))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.8))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return section
     }
 
 
