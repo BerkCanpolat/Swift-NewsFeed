@@ -9,20 +9,27 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    
+    //MARK: - Outlet
     @IBOutlet weak var collectionView: UICollectionView!
     
     
-
+    
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         collectionView.collectionViewLayout = mainLayout()
     }
     
+    
+    
+    //MARK: -FUNCTIONS
     private func setup() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        collectionView.register(UINib(nibName: HomeCollectionReusableView.identifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeCollectionReusableView.identifier)
     }
     
     private func mainLayout() -> UICollectionViewCompositionalLayout {
@@ -45,14 +52,17 @@ class HomeViewController: UIViewController {
     }
     
     private func createdFirsSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.85), heightDimension: .fractionalHeight(1))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.4))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.45))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 30, trailing: 0)
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
+        section.boundarySupplementaryItems = [createSupplementaryHeader()]
         
         return section
     }
@@ -60,22 +70,31 @@ class HomeViewController: UIViewController {
     private func createdSecondSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        //item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15)
-        
+                
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 0, trailing: 15)
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .none
+        section.boundarySupplementaryItems = [createSupplementaryHeader()]
         
         return section
+    }
+    
+    private func createSupplementaryHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
     }
 
 
 }
+
+
+
+
+
+//MARK: - Collectin View
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -103,6 +122,24 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         default:
             fatalError("bla bla")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let layout = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeCollectionReusableView.identifier, for: indexPath) as! HomeCollectionReusableView
+            switch indexPath.section {
+            case 0:
+                layout.setup(reusable: "Trending")
+            case 1:
+                layout.setup(reusable: "Recent Stories")
+            default:
+                layout.setup(reusable: "Geçersiz")
+            }
+            return layout
+        default:
+            return UICollectionReusableView()
         }
     }
 }

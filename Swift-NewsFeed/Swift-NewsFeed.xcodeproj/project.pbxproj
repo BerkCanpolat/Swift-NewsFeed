@@ -19,6 +19,10 @@
 		C0565CB62D4BEA2900496462 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CB52D4BEA2900496462 /* MockData.swift */; };
 		C0565CBD2D4BF4D400496462 /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CBC2D4BF4D400496462 /* TrendingCollectionViewCell.swift */; };
 		C0565CBF2D4BF4E400496462 /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CBE2D4BF4E400496462 /* RecentCollectionViewCell.swift */; };
+		C0565CC42D4CE45500496462 /* HomeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CC22D4CE45500496462 /* HomeCollectionReusableView.swift */; };
+		C0565CC52D4CE45500496462 /* HomeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0565CC32D4CE45500496462 /* HomeCollectionReusableView.xib */; };
+		C0565CC92D4CF0FC00496462 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CC82D4CF0FC00496462 /* UIView+Extension.swift */; };
+		C0565CCC2D4CF19B00496462 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CCB2D4CF19B00496462 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		C0565CB52D4BEA2900496462 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		C0565CBC2D4BF4D400496462 /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 		C0565CBE2D4BF4E400496462 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
+		C0565CC22D4CE45500496462 /* HomeCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionReusableView.swift; sourceTree = "<group>"; };
+		C0565CC32D4CE45500496462 /* HomeCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionReusableView.xib; sourceTree = "<group>"; };
+		C0565CC82D4CF0FC00496462 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C0565CCB2D4CF19B00496462 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +152,7 @@
 		C0565CB32D4BEA1700496462 /* DATA */ = {
 			isa = PBXGroup;
 			children = (
+				C0565CC72D4CF0E100496462 /* Extension */,
 				C0565C822D4BBE7900496462 /* AppDelegate.swift */,
 				C0565C842D4BBE7900496462 /* SceneDelegate.swift */,
 				C0565CB42D4BEA2000496462 /* models */,
@@ -162,6 +171,7 @@
 		C0565CB72D4BF44F00496462 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				C0565CCA2D4CF14800496462 /* CardView */,
 				C0565CB82D4BF45500496462 /* CollectionView */,
 			);
 			path = CustomView;
@@ -178,6 +188,7 @@
 		C0565CB92D4BF46200496462 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C0565CC62D4CE46000496462 /* HomeReusable */,
 				C0565CBB2D4BF49500496462 /* RecentCollectionViewCell */,
 				C0565CBA2D4BF47900496462 /* TrendingCollectionViewCell */,
 			);
@@ -214,6 +225,31 @@
 				C0565C862D4BBE7900496462 /* Home.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		C0565CC62D4CE46000496462 /* HomeReusable */ = {
+			isa = PBXGroup;
+			children = (
+				C0565CC22D4CE45500496462 /* HomeCollectionReusableView.swift */,
+				C0565CC32D4CE45500496462 /* HomeCollectionReusableView.xib */,
+			);
+			path = HomeReusable;
+			sourceTree = "<group>";
+		};
+		C0565CC72D4CF0E100496462 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C0565CC82D4CF0FC00496462 /* UIView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C0565CCA2D4CF14800496462 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				C0565CCB2D4CF19B00496462 /* CardView.swift */,
+			);
+			path = CardView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +358,7 @@
 			files = (
 				C0565C8C2D4BBE7B00496462 /* Assets.xcassets in Resources */,
 				C0565C8F2D4BBE7B00496462 /* Base in Resources */,
+				C0565CC52D4CE45500496462 /* HomeCollectionReusableView.xib in Resources */,
 				C0565C8A2D4BBE7900496462 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,9 +385,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0565C872D4BBE7900496462 /* Home.swift in Sources */,
+				C0565CCC2D4CF19B00496462 /* CardView.swift in Sources */,
 				C0565CBD2D4BF4D400496462 /* TrendingCollectionViewCell.swift in Sources */,
+				C0565CC92D4CF0FC00496462 /* UIView+Extension.swift in Sources */,
 				C0565CB62D4BEA2900496462 /* MockData.swift in Sources */,
 				C0565CBF2D4BF4E400496462 /* RecentCollectionViewCell.swift in Sources */,
+				C0565CC42D4CE45500496462 /* HomeCollectionReusableView.swift in Sources */,
 				C0565C832D4BBE7900496462 /* AppDelegate.swift in Sources */,
 				C0565C852D4BBE7900496462 /* SceneDelegate.swift in Sources */,
 			);

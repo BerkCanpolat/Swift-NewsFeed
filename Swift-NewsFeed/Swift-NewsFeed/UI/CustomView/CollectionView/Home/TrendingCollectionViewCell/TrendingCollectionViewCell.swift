@@ -23,6 +23,8 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         descriptionLabel.text = trend.description
         secondImageView.image = UIImage(named: trend.secondImage)
         secondImageLabel.text = trend.secondImageTitle
+        secondImageView.layoutIfNeeded()
+        secondImageView.layer.cornerRadius = secondImageView.frame.height / 2.3
     }
     
     
