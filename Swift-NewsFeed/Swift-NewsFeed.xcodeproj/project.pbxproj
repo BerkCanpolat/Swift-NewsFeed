@@ -23,6 +23,9 @@
 		C0565CC52D4CE45500496462 /* HomeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0565CC32D4CE45500496462 /* HomeCollectionReusableView.xib */; };
 		C0565CC92D4CF0FC00496462 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CC82D4CF0FC00496462 /* UIView+Extension.swift */; };
 		C0565CCC2D4CF19B00496462 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CCB2D4CF19B00496462 /* CardView.swift */; };
+		C0565CD02D4D137A00496462 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CCF2D4D137A00496462 /* OnboardViewController.swift */; };
+		C0565CD42D4D13D100496462 /* OnboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CD32D4D13D100496462 /* OnboardCollectionViewCell.swift */; };
+		C0565CD62D4D142000496462 /* OnboardMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CD52D4D142000496462 /* OnboardMockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		C0565CC32D4CE45500496462 /* HomeCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionReusableView.xib; sourceTree = "<group>"; };
 		C0565CC82D4CF0FC00496462 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C0565CCB2D4CF19B00496462 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		C0565CCF2D4D137A00496462 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		C0565CD32D4D13D100496462 /* OnboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCollectionViewCell.swift; sourceTree = "<group>"; };
+		C0565CD52D4D142000496462 /* OnboardMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardMockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				C0565CB52D4BEA2900496462 /* MockData.swift */,
+				C0565CD52D4D142000496462 /* OnboardMockData.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 		C0565CB82D4BF45500496462 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				C0565CD12D4D13BA00496462 /* Onboard */,
 				C0565CB92D4BF46200496462 /* Home */,
 			);
 			path = CollectionView;
@@ -214,6 +222,7 @@
 		C0565CC02D4BF69300496462 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C0565CCE2D4D136200496462 /* Onboard */,
 				C0565CC12D4BF69700496462 /* Home */,
 			);
 			path = Views;
@@ -250,6 +259,30 @@
 				C0565CCB2D4CF19B00496462 /* CardView.swift */,
 			);
 			path = CardView;
+			sourceTree = "<group>";
+		};
+		C0565CCE2D4D136200496462 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				C0565CCF2D4D137A00496462 /* OnboardViewController.swift */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
+		C0565CD12D4D13BA00496462 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				C0565CD22D4D13BF00496462 /* OnboardCollectionViewCell */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
+		C0565CD22D4D13BF00496462 /* OnboardCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C0565CD32D4D13D100496462 /* OnboardCollectionViewCell.swift */,
+			);
+			path = OnboardCollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,9 +417,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0565CD42D4D13D100496462 /* OnboardCollectionViewCell.swift in Sources */,
+				C0565CD02D4D137A00496462 /* OnboardViewController.swift in Sources */,
 				C0565C872D4BBE7900496462 /* Home.swift in Sources */,
 				C0565CCC2D4CF19B00496462 /* CardView.swift in Sources */,
 				C0565CBD2D4BF4D400496462 /* TrendingCollectionViewCell.swift in Sources */,
+				C0565CD62D4D142000496462 /* OnboardMockData.swift in Sources */,
 				C0565CC92D4CF0FC00496462 /* UIView+Extension.swift in Sources */,
 				C0565CB62D4BEA2900496462 /* MockData.swift in Sources */,
 				C0565CBF2D4BF4E400496462 /* RecentCollectionViewCell.swift in Sources */,
