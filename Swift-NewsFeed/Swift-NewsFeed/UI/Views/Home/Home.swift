@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     //MARK: - Outlet
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
+    var postData = [PostModel]()
     
     
     //MARK: - LifeCycle
@@ -20,6 +20,16 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setup()
         collectionView.collectionViewLayout = mainLayout()
+        
+        ServiceManager.shared.testRequest { result in
+            switch result {
+            case .success(let data):
+                self.postData = data
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print("Controllerda network hatası")
+            }
+        }
     }
     
     
@@ -103,7 +113,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: return oneMoc.count
+        case 0: return postData.count
         case 1: return twoMoc.count
         default:
             return 0
@@ -114,7 +124,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCollectionViewCell.identifier, for: indexPath) as! TrendingCollectionViewCell
-            cell.setup(trend: oneMoc[indexPath.row])
+            cell.imageView.image = UIImage(named: "one")
+            cell.secondImageView.image = UIImage(named: "two")
+            cell.descriptionLabel.text = postData[indexPath.row].body
+            cell.secondImageLabel.text = postData[indexPath.row].title
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentCollectionViewCell.identifier, for: indexPath) as! RecentCollectionViewCell

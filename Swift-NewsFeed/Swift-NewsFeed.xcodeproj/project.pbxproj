@@ -30,6 +30,7 @@
 		C0565CDD2D4D53CE00496462 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CDC2D4D53CE00496462 /* Route.swift */; };
 		C0565CDF2D4D541B00496462 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CDE2D4D541B00496462 /* Method.swift */; };
 		C0565CE12D4D547200496462 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CE02D4D547200496462 /* AppError.swift */; };
+		C0565CE32D4D5BC800496462 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CE22D4D5BC800496462 /* ServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		C0565CDC2D4D53CE00496462 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		C0565CDE2D4D541B00496462 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		C0565CE02D4D547200496462 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		C0565CE22D4D5BC800496462 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +309,7 @@
 		C0565CDA2D4D53AF00496462 /* ServiceManager */ = {
 			isa = PBXGroup;
 			children = (
+				C0565CE22D4D5BC800496462 /* ServiceManager.swift */,
 			);
 			path = ServiceManager;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				C0565CD82D4D537600496462 /* String+Extension.swift in Sources */,
 				C0565CC92D4CF0FC00496462 /* UIView+Extension.swift in Sources */,
 				C0565CB62D4BEA2900496462 /* MockData.swift in Sources */,
+				C0565CE32D4D5BC800496462 /* ServiceManager.swift in Sources */,
 				C0565CBF2D4BF4E400496462 /* RecentCollectionViewCell.swift in Sources */,
 				C0565CC42D4CE45500496462 /* HomeCollectionReusableView.swift in Sources */,
 				C0565C832D4BBE7900496462 /* AppDelegate.swift in Sources */,

@@ -8,13 +8,13 @@
 import Foundation
 
 enum Route {
-    static let baseUrl = ""
+    static let baseUrl = "https://jsonplaceholder.typicode.com"
     
-    case test
+    case post
     
     var description: String {
         switch self {
-        case .test: return ""
+        case .post: return "/posts"
         }
     }
 }

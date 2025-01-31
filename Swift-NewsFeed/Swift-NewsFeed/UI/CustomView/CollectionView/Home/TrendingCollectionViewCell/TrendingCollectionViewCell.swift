@@ -27,6 +27,11 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         secondImageView.layer.cornerRadius = secondImageView.frame.height / 2.3
     }
     
+    func setup2(post: PostModel) {
+        descriptionLabel.text = post.body
+        secondImageLabel.text = post.title
+    }
+    
     
     
     
