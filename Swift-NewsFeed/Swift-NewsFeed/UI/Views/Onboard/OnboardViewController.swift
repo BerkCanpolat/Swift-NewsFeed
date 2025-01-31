@@ -20,7 +20,6 @@ class OnboardViewController: UIViewController {
             pageControl.currentPage = currentPage
             if currentPage == onboardMoc.count - 1 {
                 self.continueBtn.setTitle("Get Started", for: .normal)
-                self.continueBtn.frame.size.width = 300
                 self.skipBtn.isHidden = true
             } else {
                 self.continueBtn.setTitle("Continue", for: .normal)

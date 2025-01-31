@@ -419,14 +419,14 @@
                                 <color key="backgroundColor" red="0.25280242609999998" green="0.49019127899999998" blue="0.25976377540000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ApN-UU-Lzj"/>
-                                    <constraint firstAttribute="width" constant="120" id="Mon-Ai-EtS"/>
+                                    <constraint firstAttribute="width" constant="120" id="GXS-21-yC5"/>
                                 </constraints>
                                 <color key="tintColor" red="0.28596701360855314" green="0.54570737747676779" blue="0.29627298183784029" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Continue"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="50"/>
+                                        <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
