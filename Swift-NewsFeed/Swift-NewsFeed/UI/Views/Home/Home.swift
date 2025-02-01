@@ -9,8 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController, HomeProtocolOutPut {
     
-    func didFetchData(data: [PostModel]) {
-        self.postData = data
+    func didFetchData(data: News) {
+        self.newDataNews = data
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
@@ -24,7 +24,8 @@ class HomeViewController: UIViewController, HomeProtocolOutPut {
     //MARK: - Outlet
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var postData = [PostModel]()
+    var newsData = [Article]()
+    var newDataNews: News?
     private var viewModel : HomeViewModel?
     
     
@@ -34,7 +35,6 @@ class HomeViewController: UIViewController, HomeProtocolOutPut {
         setup()
         viewModel?.testGetUser()
         collectionView.collectionViewLayout = mainLayout()
-
         
     }
     
@@ -126,7 +126,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: return postData.count
+        case 0: return newDataNews?.articles?.count ?? 0
         case 1: return twoMoc.count
         default:
             return 0
@@ -138,10 +138,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCollectionViewCell.identifier, for: indexPath) as! TrendingCollectionViewCell
+            let art = newDataNews?.articles?[indexPath.row]
             cell.imageView.image = UIImage(named: "one")
             cell.secondImageView.image = UIImage(named: "two")
-            cell.descriptionLabel.text = postData[indexPath.row].body
-            cell.secondImageLabel.text = postData[indexPath.row].title
+            cell.descriptionLabel.text = art?.description
+            cell.secondImageLabel.text = art?.title
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentCollectionViewCell.identifier, for: indexPath) as! RecentCollectionViewCell

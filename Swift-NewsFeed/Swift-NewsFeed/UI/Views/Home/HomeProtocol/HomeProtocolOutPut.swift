@@ -8,6 +8,6 @@
 import Foundation
 
 protocol HomeProtocolOutPut: AnyObject {
-    func didFetchData(data: [PostModel])
+    func didFetchData(data: News)
     func didFetchErro(error: Error)
 }
