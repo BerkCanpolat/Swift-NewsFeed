@@ -27,7 +27,6 @@
 		C0565CD42D4D13D100496462 /* OnboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CD32D4D13D100496462 /* OnboardCollectionViewCell.swift */; };
 		C0565CD62D4D142000496462 /* OnboardMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CD52D4D142000496462 /* OnboardMockData.swift */; };
 		C0565CD82D4D537600496462 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CD72D4D537600496462 /* String+Extension.swift */; };
-		C0565CDD2D4D53CE00496462 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CDC2D4D53CE00496462 /* Route.swift */; };
 		C0565CDF2D4D541B00496462 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CDE2D4D541B00496462 /* Method.swift */; };
 		C0565CE12D4D547200496462 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CE02D4D547200496462 /* AppError.swift */; };
 		C0565CE32D4D5BC800496462 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CE22D4D5BC800496462 /* ServiceManager.swift */; };
@@ -37,7 +36,7 @@
 		C0565CED2D4E2B4B00496462 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CEC2D4E2B4B00496462 /* UIViewController+Extension.swift */; };
 		C0565CEF2D4E390700496462 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CEE2D4E390700496462 /* NewsModel.swift */; };
 		C0565CF12D4E3AC700496462 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CF02D4E3AC700496462 /* ApiResponse.swift */; };
-		C0565CF32D4E9BCB00496462 /* deneme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CF22D4E9BCB00496462 /* deneme.swift */; };
+		C0565CF52D4E9C4D00496462 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CF42D4E9C4D00496462 /* Routes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +81,6 @@
 		C0565CD32D4D13D100496462 /* OnboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C0565CD52D4D142000496462 /* OnboardMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardMockData.swift; sourceTree = "<group>"; };
 		C0565CD72D4D537600496462 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		C0565CDC2D4D53CE00496462 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		C0565CDE2D4D541B00496462 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		C0565CE02D4D547200496462 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		C0565CE22D4D5BC800496462 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
@@ -92,7 +90,7 @@
 		C0565CEC2D4E2B4B00496462 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		C0565CEE2D4E390700496462 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		C0565CF02D4E3AC700496462 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
-		C0565CF22D4E9BCB00496462 /* deneme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deneme.swift; sourceTree = "<group>"; };
+		C0565CF42D4E9C4D00496462 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,10 +334,9 @@
 		C0565CDB2D4D53BB00496462 /* enums */ = {
 			isa = PBXGroup;
 			children = (
-				C0565CDC2D4D53CE00496462 /* Route.swift */,
 				C0565CDE2D4D541B00496462 /* Method.swift */,
 				C0565CE02D4D547200496462 /* AppError.swift */,
-				C0565CF22D4E9BCB00496462 /* deneme.swift */,
+				C0565CF42D4E9C4D00496462 /* Routes.swift */,
 			);
 			path = enums;
 			sourceTree = "<group>";
@@ -504,9 +501,7 @@
 				C0565CE12D4D547200496462 /* AppError.swift in Sources */,
 				C0565CBD2D4BF4D400496462 /* TrendingCollectionViewCell.swift in Sources */,
 				C0565CDF2D4D541B00496462 /* Method.swift in Sources */,
-				C0565CDD2D4D53CE00496462 /* Route.swift in Sources */,
 				C0565CD62D4D142000496462 /* OnboardMockData.swift in Sources */,
-				C0565CF32D4E9BCB00496462 /* deneme.swift in Sources */,
 				C0565CD82D4D537600496462 /* String+Extension.swift in Sources */,
 				C0565CC92D4CF0FC00496462 /* UIView+Extension.swift in Sources */,
 				C0565CB62D4BEA2900496462 /* MockData.swift in Sources */,
@@ -516,6 +511,7 @@
 				C0565C832D4BBE7900496462 /* AppDelegate.swift in Sources */,
 				C0565CED2D4E2B4B00496462 /* UIViewController+Extension.swift in Sources */,
 				C0565C852D4BBE7900496462 /* SceneDelegate.swift in Sources */,
+				C0565CF52D4E9C4D00496462 /* Routes.swift in Sources */,
 				C0565CEB2D4E275800496462 /* HomeProtocolOutPut.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
