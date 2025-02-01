@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RecentCollectionViewCell: UICollectionViewCell {
     
@@ -17,12 +18,29 @@ class RecentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var secondImageLabel: UILabel!
     
     
-    func setup(recent: MockData) {
-        imageView.image = UIImage(named: recent.image)
-        descriptionLabel.text = recent.description
-        secondImageView.image = UIImage(named: recent.secondImage)
-        secondImageLabel.text = recent.secondImageTitle
-    }
+
+        func setup(trend: Article) {
+            imageView.kf.setImage(with: trend.urlToImage?.asUrl) { result in
+                switch result {
+                case .success:
+                    break
+                case .failure:
+                    self.imageView.image = UIImage(named: "one")
+                }
+            }
+            descriptionLabel.text = trend.description ?? "Anonim"
+            secondImageView.kf.setImage(with: trend.urlToImage?.asUrl) { result in
+                switch result {
+                case .success:
+                    break
+                case .failure:
+                    self.secondImageView.image = UIImage(named: "one")
+                }
+            }
+            secondImageLabel.text = trend.author ?? "Anonim"
+            secondImageView.layoutIfNeeded()
+            secondImageView.layer.cornerRadius = secondImageView.frame.height / 2.3
+        }
     
     
 }

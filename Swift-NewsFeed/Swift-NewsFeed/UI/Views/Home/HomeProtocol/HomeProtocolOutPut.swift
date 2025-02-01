@@ -9,5 +9,6 @@ import Foundation
 
 protocol HomeProtocolOutPut: AnyObject {
     func didFetchData(data: News)
+    func didFetchBbcData(data: News)
     func didFetchErro(error: Error)
 }

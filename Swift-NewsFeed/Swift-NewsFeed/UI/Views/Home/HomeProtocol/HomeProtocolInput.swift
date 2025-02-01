@@ -8,5 +8,6 @@
 import Foundation
 
 protocol HomeProtocolInput: AnyObject {
-    func testGetUser()
+    func fetchTopHeadlines()
+    func fetchBBCNews()
 }

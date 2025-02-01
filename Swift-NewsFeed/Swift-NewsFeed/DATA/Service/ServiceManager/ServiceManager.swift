@@ -14,7 +14,8 @@ struct PostModel: Decodable {
 
 
 protocol ServiceManagerProtocol {
-    func testRequest(completin: @escaping(Result<News,Error>) -> Void)
+    func getTopHeadlines(completin: @escaping(Result<News,Error>) -> Void)
+    func fetBBCNews(completion: @escaping (Result<News, any Error>) -> Void)
 }
 
 class ServiceManager: ServiceManagerProtocol {
@@ -24,8 +25,12 @@ class ServiceManager: ServiceManagerProtocol {
     private init() {}
     
     
-    func testRequest(completin: @escaping (Result<News, any Error>) -> Void) {
+    func getTopHeadlines(completin: @escaping (Result<News, any Error>) -> Void) {
         request(route: .topHeadlines(country: "us"), method: .get, completion: completin)
+    }
+    
+    func fetBBCNews(completion: @escaping (Result<News, any Error>) -> Void) {
+        request(route: .topHeadlinesSources(sources: "bbc-news"), method: .get, completion: completion)
     }
     
     
@@ -40,7 +45,7 @@ class ServiceManager: ServiceManagerProtocol {
             if let data = data {
                 result = .success(data)
                 let responseString = String(data: data, encoding: .utf8) ?? ""
-                print("Response Json Data: \(responseString)")
+                //print("Response Json Data: \(responseString)")
             } else if let error = error {
                 result = .failure(error)
                 print("Request error: \(error.localizedDescription)")
@@ -105,74 +110,4 @@ class ServiceManager: ServiceManagerProtocol {
         }
         return urlRequest
     }
-}
-
-
-import Foundation
-
-class NewsService {
-    private let apiKey = "984763387f2844a7b48bccad0f7fabe0"
-    private let baseURL = "https://newsapi.org/v2/top-headlines"
-    
-    // Create a URL session to fetch the data
-    func fetchArticles(completion: @escaping (Result<[Articlee], Error>) -> Void) {
-        let urlString = "\(baseURL)?country=us&apiKey=\(apiKey)"
-        
-        guard let url = URL(string: urlString) else {
-            completion(.failure(NSError(domain: "Invalid URL", code: 400, userInfo: nil)))
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(NSError(domain: "No Data", code: 400, userInfo: nil)))
-                return
-            }
-            
-            do {
-                let newsResponse = try JSONDecoder().decode(NewsResponse.self, from: data)
-                completion(.success(newsResponse.articles ?? []))
-            } catch {
-                completion(.failure(error))
-            }
-        }
-        
-        task.resume()
-    }
-}
-
-
-import Foundation
-
-// MARK: - Article Model
-
-struct Articlee: Codable {
-    let source: Sourcee?
-    let author: String?
-    let title: String?
-    let description: String?
-    let url: String?
-    let urlToImage: String?
-    let publishedAt: String?
-    let content: String?
-}
-
-// MARK: - Source Model
-
-struct Sourcee: Codable {
-    let id: String?
-    let name: String
-}
-
-// MARK: - Response Model
-
-struct NewsResponse: Codable {
-    let status: String
-    let totalResults: Int
-    let articles: [Articlee]?
 }

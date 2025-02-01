@@ -9,6 +9,8 @@ import Foundation
 
 class HomeViewModel: HomeProtocolInput {
     
+    
+    
     weak var output: HomeProtocolOutPut?
     private let networkService: ServiceManagerProtocol
     
@@ -16,12 +18,24 @@ class HomeViewModel: HomeProtocolInput {
         self.networkService = networkService
     }
     
-    func testGetUser() {
-        networkService.testRequest { [weak self] result in
+    func fetchTopHeadlines() {
+        networkService.getTopHeadlines { [weak self] result in
             switch result {
             case .success(let data):
                 self?.output?.didFetchData(data: data)
             case .failure(let error):
+                self?.output?.didFetchErro(error: error)
+            }
+        }
+    }
+    
+    func fetchBBCNews() {
+        networkService.fetBBCNews { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.output?.didFetchBbcData(data: data)
+            case .failure(let error):
+                print("BBC News verisi alınırken hata: \(error)")
                 self?.output?.didFetchErro(error: error)
             }
         }

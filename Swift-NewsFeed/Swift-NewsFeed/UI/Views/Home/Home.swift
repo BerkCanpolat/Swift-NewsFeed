@@ -9,11 +9,27 @@ import UIKit
 
 class HomeViewController: UIViewController, HomeProtocolOutPut {
     
+    func didFetchBbcData(data: News) {
+        if let articles = data.articles, !articles.isEmpty {
+            self.bbcNews = articles
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            } else {
+                print("Headlines verisi boş!")
+            }
+    }
+    
+    
     func didFetchData(data: News) {
-        self.newDataNews = data
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+        if let articles = data.articles, !articles.isEmpty {
+                self.topHeadlines = articles
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            } else {
+                print("Headlines verisi boş!")
+            }
     }
     
     func didFetchErro(error: any Error) {
@@ -24,8 +40,9 @@ class HomeViewController: UIViewController, HomeProtocolOutPut {
     //MARK: - Outlet
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var newsData = [Article]()
-    var newDataNews: News?
+    var topHeadlines: [Article] = []
+    var bbcNews: [Article] = []
+    
     private var viewModel : HomeViewModel?
     
     
@@ -33,7 +50,8 @@ class HomeViewController: UIViewController, HomeProtocolOutPut {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        viewModel?.testGetUser()
+        viewModel?.fetchTopHeadlines()
+        viewModel?.fetchBBCNews()
         collectionView.collectionViewLayout = mainLayout()
         
     }
@@ -126,8 +144,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: return newDataNews?.articles?.count ?? 0
-        case 1: return twoMoc.count
+        case 0: print("Top Headlines verisi sayısı: \(topHeadlines.count)")
+            return topHeadlines.count
+               
+        case 1: 
+               print("BBC News verisi sayısı: \(bbcNews.count)")
+               return bbcNews.count
+            
         default:
             return 0
         }
@@ -138,15 +161,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCollectionViewCell.identifier, for: indexPath) as! TrendingCollectionViewCell
-            let art = newDataNews?.articles?[indexPath.row]
-            cell.imageView.image = UIImage(named: "one")
-            cell.secondImageView.image = UIImage(named: "two")
-            cell.descriptionLabel.text = art?.description
-            cell.secondImageLabel.text = art?.title
+            cell.setup(trend: topHeadlines[indexPath.row])
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentCollectionViewCell.identifier, for: indexPath) as! RecentCollectionViewCell
-            cell.setup(recent: twoMoc[indexPath.row])
+            cell.setup(trend: bbcNews[indexPath.row])
             return cell
         default:
             fatalError("bla bla")
@@ -159,9 +178,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let layout = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeCollectionReusableView.identifier, for: indexPath) as! HomeCollectionReusableView
             switch indexPath.section {
             case 0:
-                layout.setup(reusable: "Trending")
+                layout.setup(reusable: "Top Headline")
             case 1:
-                layout.setup(reusable: "Recent Stories")
+                layout.setup(reusable: "BBC News")
             default:
                 layout.setup(reusable: "Geçersiz")
             }

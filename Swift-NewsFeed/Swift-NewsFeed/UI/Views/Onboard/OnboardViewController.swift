@@ -41,24 +41,14 @@ class OnboardViewController: UIViewController {
     
 
     @IBAction func continueBtnClicked(_ sender: Any) {
-        /*if currentPage == onboardMoc.count - 1 {
-            let controller = storyboard?.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
-            controller.modalPresentationStyle = .fullScreen
-            present(controller, animated: true)
-        } else {
-            currentPage += 1
-            let index = IndexPath(item: currentPage, section: 0)
-            collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
-        }*/
-        
         if currentPage == onboardMoc.count - 1 {
                 let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 let serviceManager: ServiceManagerProtocol = ServiceManager.shared
                 let viewModel = HomeViewModel(networkService: serviceManager)
                 homeVC.configure(viewModel: viewModel)
                 
-                        homeVC.modalPresentationStyle = .fullScreen
-                        present(homeVC, animated: true)
+                homeVC.modalPresentationStyle = .fullScreen
+                present(homeVC, animated: true)
             } else {
                 currentPage += 1
                 let index = IndexPath(item: currentPage, section: 0)
