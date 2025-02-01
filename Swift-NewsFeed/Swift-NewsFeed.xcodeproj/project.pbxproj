@@ -37,6 +37,7 @@
 		C0565CED2D4E2B4B00496462 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CEC2D4E2B4B00496462 /* UIViewController+Extension.swift */; };
 		C0565CEF2D4E390700496462 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CEE2D4E390700496462 /* NewsModel.swift */; };
 		C0565CF12D4E3AC700496462 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CF02D4E3AC700496462 /* ApiResponse.swift */; };
+		C0565CF32D4E9BCB00496462 /* deneme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CF22D4E9BCB00496462 /* deneme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		C0565CEC2D4E2B4B00496462 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		C0565CEE2D4E390700496462 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		C0565CF02D4E3AC700496462 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		C0565CF22D4E9BCB00496462 /* deneme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deneme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +339,7 @@
 				C0565CDC2D4D53CE00496462 /* Route.swift */,
 				C0565CDE2D4D541B00496462 /* Method.swift */,
 				C0565CE02D4D547200496462 /* AppError.swift */,
+				C0565CF22D4E9BCB00496462 /* deneme.swift */,
 			);
 			path = enums;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				C0565CDF2D4D541B00496462 /* Method.swift in Sources */,
 				C0565CDD2D4D53CE00496462 /* Route.swift in Sources */,
 				C0565CD62D4D142000496462 /* OnboardMockData.swift in Sources */,
+				C0565CF32D4E9BCB00496462 /* deneme.swift in Sources */,
 				C0565CD82D4D537600496462 /* String+Extension.swift in Sources */,
 				C0565CC92D4CF0FC00496462 /* UIView+Extension.swift in Sources */,
 				C0565CB62D4BEA2900496462 /* MockData.swift in Sources */,
