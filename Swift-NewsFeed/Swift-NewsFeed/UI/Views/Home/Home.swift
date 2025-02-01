@@ -7,29 +7,40 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, HomeProtocolOutPut {
+    
+    func didFetchData(data: [PostModel]) {
+        self.postData = data
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func didFetchErro(error: any Error) {
+        print("Protocol outputunun controllerinde bir hata: \(error.localizedDescription)")
+    }
+    
     
     //MARK: - Outlet
     @IBOutlet weak var collectionView: UICollectionView!
     
     var postData = [PostModel]()
+    private var viewModel : HomeViewModel?
     
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        viewModel?.testGetUser()
         collectionView.collectionViewLayout = mainLayout()
+
         
-        ServiceManager.shared.testRequest { result in
-            switch result {
-            case .success(let data):
-                self.postData = data
-                self.collectionView.reloadData()
-            case .failure(let error):
-                print("Controllerda network hatası")
-            }
-        }
+    }
+    
+    func configure(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        viewModel.output = self
     }
     
     
@@ -42,6 +53,8 @@ class HomeViewController: UIViewController {
         collectionView.register(UINib(nibName: HomeCollectionReusableView.identifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeCollectionReusableView.identifier)
     }
     
+    
+    //MARK: -COMPOSİTİONAL LAYOUT
     private func mainLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout{ [weak self] (index, environment) -> NSCollectionLayoutSection? in
             return self?.createdSectionLayout(index: index, environment: environment)
@@ -120,6 +133,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
+    //MARK: - Collection Cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
