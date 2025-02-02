@@ -41,7 +41,7 @@ class OnboardViewController: UIViewController {
     
 
     @IBAction func continueBtnClicked(_ sender: Any) {
-        if currentPage == onboardMoc.count - 1 {
+        /*if currentPage == onboardMoc.count - 1 {
                 let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 let serviceManager: ServiceManagerProtocol = ServiceManager.shared
                 let viewModel = HomeViewModel(networkService: serviceManager)
@@ -53,8 +53,45 @@ class OnboardViewController: UIViewController {
                 currentPage += 1
                 let index = IndexPath(item: currentPage, section: 0)
                 collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+            }*/
+        
+        if currentPage == onboardMoc.count - 1 {
+                let serviceManager: ServiceManagerProtocol = ServiceManager.shared
+                let homeViewModel = HomeViewModel(networkService: serviceManager)
+
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "MainTab") as! UITabBarController
+
+                if let viewControllers = tabBarController.viewControllers {
+                    for viewController in viewControllers {
+                        if let navController = viewController as? UINavigationController {
+                            if let homeVC = navController.topViewController as? HomeViewController {
+                                homeVC.configure(viewModel: homeViewModel)
+                                break
+                            }
+                        } else if let homeVC = viewController as? HomeViewController {
+                            homeVC.configure(viewModel: homeViewModel)
+                            break
+                        }
+                    }
+                }
+
+                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                    let window = sceneDelegate.window
+                    window?.rootViewController = tabBarController
+                    UIView.transition(with: window!,
+                                      duration: 0.5,
+                                      options: .transitionCrossDissolve,
+                                      animations: nil)
+                }
+            } else {
+                currentPage += 1
+                let index = IndexPath(item: currentPage, section: 0)
+                collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
             }
     }
+    
+    
     
     
     @IBAction func skipBtnClicked(_ sender: Any) {

@@ -53,7 +53,7 @@ class HomeViewController: UIViewController, HomeProtocolOutPut {
         viewModel?.fetchTopHeadlines()
         viewModel?.fetchBBCNews()
         collectionView.collectionViewLayout = mainLayout()
-        
+                
     }
     
     func configure(viewModel: HomeViewModel) {
@@ -175,7 +175,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.setup(bbc: bbcNews[indexPath.row])
             return cell
         default:
-            fatalError("bla bla")
+            fatalError("Collection Cell Error")
         }
     }
     
