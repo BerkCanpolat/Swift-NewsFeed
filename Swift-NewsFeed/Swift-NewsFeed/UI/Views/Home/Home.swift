@@ -137,7 +137,14 @@ class HomeViewController: UIViewController, HomeProtocolOutPut {
 
 //MARK: - Collectin View
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, HomeReusableProtocol {
+    func homeReusable(indexPat: IndexPath) {
+        let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        homeVC.news = topHeadlines[indexPat.row]
+        homeVC.modalPresentationStyle = .fullScreen
+        present(homeVC, animated: true)
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -161,11 +168,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCollectionViewCell.identifier, for: indexPath) as! TrendingCollectionViewCell
-            cell.setup(trend: topHeadlines[indexPath.row])
+            cell.setup(topHeadline: topHeadlines[indexPath.row])
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentCollectionViewCell.identifier, for: indexPath) as! RecentCollectionViewCell
-            cell.setup(trend: bbcNews[indexPath.row])
+            cell.setup(bbc: bbcNews[indexPath.row])
             return cell
         default:
             fatalError("bla bla")
@@ -179,6 +186,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             switch indexPath.section {
             case 0:
                 layout.setup(reusable: "Top Headline")
+                layout.homeReusableIndexPath = indexPath
+                layout.homeReusableProtocol = self
             case 1:
                 layout.setup(reusable: "BBC News")
             default:
@@ -188,5 +197,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         default:
             return UICollectionReusableView()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        homeVC.news = topHeadlines[indexPath.row]
+        homeVC.modalPresentationStyle = .fullScreen
+        present(homeVC, animated: true)
     }
 }

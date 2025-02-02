@@ -19,25 +19,12 @@ class RecentCollectionViewCell: UICollectionViewCell {
     
     
 
-        func setup(trend: Article) {
-            imageView.kf.setImage(with: trend.urlToImage?.asUrl) { result in
-                switch result {
-                case .success:
-                    break
-                case .failure:
-                    self.imageView.image = UIImage(named: "one")
-                }
-            }
-            descriptionLabel.text = trend.description ?? "Anonim"
-            secondImageView.kf.setImage(with: trend.urlToImage?.asUrl) { result in
-                switch result {
-                case .success:
-                    break
-                case .failure:
-                    self.secondImageView.image = UIImage(named: "one")
-                }
-            }
-            secondImageLabel.text = trend.author ?? "Anonim"
+        func setup(bbc: Article) {
+            let placeholderImage = UIImage(named: "logo")
+            imageView.kf.setImage(with: bbc.urlToImage?.asUrl, placeholder: placeholderImage)
+            descriptionLabel.text = bbc.description ?? "Anonim"
+            secondImageView.kf.setImage(with: bbc.urlToImage?.asUrl, placeholder: placeholderImage)
+            secondImageLabel.text = bbc.author ?? "Anonim"
             secondImageView.layoutIfNeeded()
             secondImageView.layer.cornerRadius = secondImageView.frame.height / 2.3
         }

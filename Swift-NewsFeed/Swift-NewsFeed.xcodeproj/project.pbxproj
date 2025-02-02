@@ -38,6 +38,7 @@
 		C0565CF12D4E3AC700496462 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CF02D4E3AC700496462 /* ApiResponse.swift */; };
 		C0565CF52D4E9C4D00496462 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CF42D4E9C4D00496462 /* Routes.swift */; };
 		C0565CF82D4E9D0C00496462 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C0565CF72D4E9D0C00496462 /* Kingfisher */; };
+		C0565CFB2D501ED300496462 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CFA2D501ED300496462 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		C0565CEE2D4E390700496462 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		C0565CF02D4E3AC700496462 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		C0565CF42D4E9C4D00496462 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		C0565CFA2D501ED300496462 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 		C0565CC02D4BF69300496462 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C0565CF92D501EC400496462 /* Details */,
 				C0565CCE2D4D136200496462 /* Onboard */,
 				C0565CC12D4BF69700496462 /* Home */,
 			);
@@ -358,6 +361,14 @@
 				C0565CEA2D4E275800496462 /* HomeProtocolOutPut.swift */,
 			);
 			path = HomeProtocol;
+			sourceTree = "<group>";
+		};
+		C0565CF92D501EC400496462 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				C0565CFA2D501ED300496462 /* DetailsViewController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,6 +520,7 @@
 				C0565CE12D4D547200496462 /* AppError.swift in Sources */,
 				C0565CBD2D4BF4D400496462 /* TrendingCollectionViewCell.swift in Sources */,
 				C0565CDF2D4D541B00496462 /* Method.swift in Sources */,
+				C0565CFB2D501ED300496462 /* DetailsViewController.swift in Sources */,
 				C0565CD62D4D142000496462 /* OnboardMockData.swift in Sources */,
 				C0565CD82D4D537600496462 /* String+Extension.swift in Sources */,
 				C0565CC92D4CF0FC00496462 /* UIView+Extension.swift in Sources */,
