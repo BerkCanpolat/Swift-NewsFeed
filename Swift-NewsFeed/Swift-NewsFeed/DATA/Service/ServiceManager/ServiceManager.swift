@@ -16,21 +16,49 @@ struct PostModel: Decodable {
 protocol ServiceManagerProtocol {
     func getTopHeadlines(completin: @escaping(Result<News,Error>) -> Void)
     func fetBBCNews(completion: @escaping (Result<News, any Error>) -> Void)
+    func getCategoriesBusiness(completion: @escaping (Result<CategoryNews, any Error>) -> Void)
+    func getCategoriesHealth(completion: @escaping (Result<CategoryNews, any Error>) -> Void)
+    func getCategoriesSciense(completion: @escaping (Result<CategoryNews, any Error>) -> Void)
+    func getCategoriesSports(completion: @escaping (Result<CategoryNews, any Error>) -> Void)
+    func getCategoriesGeneral(completion: @escaping (Result<CategoryNews, any Error>) -> Void)
 }
 
 class ServiceManager: ServiceManagerProtocol {
+    
+    
     
     static let shared = ServiceManager()
     
     private init() {}
     
     
+    //MARK: - Request Api
     func getTopHeadlines(completin: @escaping (Result<News, any Error>) -> Void) {
         request(route: .topHeadlines(country: "us"), method: .get, completion: completin)
     }
     
     func fetBBCNews(completion: @escaping (Result<News, any Error>) -> Void) {
         request(route: .topHeadlinesSources(sources: "bbc-news"), method: .get, completion: completion)
+    }
+    
+    func getCategoriesBusiness(completion: @escaping (Result<CategoryNews, any Error>) -> Void) {
+        request(route: .categoriesNews(category: "business"), method: .get, completion: completion)
+    }
+    
+    func getCategoriesHealth(completion: @escaping (Result<CategoryNews, any Error>) -> Void) {
+        request(route: .categoriesNews(category: "health"), method: .get, completion: completion)
+    }
+    
+    func getCategoriesSciense(completion: @escaping (Result<CategoryNews, any Error>) -> Void) {
+        request(route: .categoriesNews(category: "science"), method: .get, completion: completion)
+    }
+    
+    func getCategoriesSports(completion: @escaping (Result<CategoryNews, any Error>) -> Void) {
+        request(route: .categoriesNews(category: "sports"), method: .get, completion: completion)
+    }
+    
+    func getCategoriesGeneral(completion: @escaping (Result<CategoryNews, any Error>) -> Void) {
+        request(route: .categoriesNews(category: "general"), method: .get, completion: completion)
     }
     
     

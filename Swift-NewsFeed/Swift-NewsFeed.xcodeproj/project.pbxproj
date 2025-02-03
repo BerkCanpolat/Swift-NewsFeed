@@ -39,6 +39,12 @@
 		C0565CF52D4E9C4D00496462 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CF42D4E9C4D00496462 /* Routes.swift */; };
 		C0565CF82D4E9D0C00496462 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C0565CF72D4E9D0C00496462 /* Kingfisher */; };
 		C0565CFB2D501ED300496462 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CFA2D501ED300496462 /* DetailsViewController.swift */; };
+		C068120F2D50D59E002057B9 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068120E2D50D59E002057B9 /* DiscoverViewController.swift */; };
+		C06812122D50D906002057B9 /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06812112D50D906002057B9 /* DiscoverTableViewCell.swift */; };
+		C06812142D50DB3B002057B9 /* CategoryNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06812132D50DB3B002057B9 /* CategoryNewsModel.swift */; };
+		C06812172D50DDC4002057B9 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06812162D50DDC4002057B9 /* DiscoverViewModel.swift */; };
+		C06812192D50DDD4002057B9 /* DiscoverViewModelInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06812182D50DDD4002057B9 /* DiscoverViewModelInputProtocol.swift */; };
+		C068121B2D50DDEE002057B9 /* DiscoverViewModelOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068121A2D50DDEE002057B9 /* DiscoverViewModelOutputProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +100,12 @@
 		C0565CF02D4E3AC700496462 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		C0565CF42D4E9C4D00496462 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		C0565CFA2D501ED300496462 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		C068120E2D50D59E002057B9 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		C06812112D50D906002057B9 /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
+		C06812132D50DB3B002057B9 /* CategoryNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewsModel.swift; sourceTree = "<group>"; };
+		C06812162D50DDC4002057B9 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
+		C06812182D50DDD4002057B9 /* DiscoverViewModelInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModelInputProtocol.swift; sourceTree = "<group>"; };
+		C068121A2D50DDEE002057B9 /* DiscoverViewModelOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModelOutputProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +212,7 @@
 				C0565CB52D4BEA2900496462 /* MockData.swift */,
 				C0565CD52D4D142000496462 /* OnboardMockData.swift */,
 				C0565CEE2D4E390700496462 /* NewsModel.swift */,
+				C06812132D50DB3B002057B9 /* CategoryNewsModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -207,6 +220,7 @@
 		C0565CB72D4BF44F00496462 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				C06812102D50D8EF002057B9 /* TableView */,
 				C0565CCA2D4CF14800496462 /* CardView */,
 				C0565CB82D4BF45500496462 /* CollectionView */,
 			);
@@ -251,6 +265,7 @@
 		C0565CC02D4BF69300496462 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C068120D2D50D590002057B9 /* Discover */,
 				C0565CF92D501EC400496462 /* Details */,
 				C0565CCE2D4D136200496462 /* Onboard */,
 				C0565CC12D4BF69700496462 /* Home */,
@@ -369,6 +384,33 @@
 				C0565CFA2D501ED300496462 /* DetailsViewController.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		C068120D2D50D590002057B9 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				C06812152D50DDB3002057B9 /* DiscoverViewModel */,
+				C068120E2D50D59E002057B9 /* DiscoverViewController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		C06812102D50D8EF002057B9 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				C06812112D50D906002057B9 /* DiscoverTableViewCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		C06812152D50DDB3002057B9 /* DiscoverViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C06812162D50DDC4002057B9 /* DiscoverViewModel.swift */,
+				C06812182D50DDD4002057B9 /* DiscoverViewModelInputProtocol.swift */,
+				C068121A2D50DDEE002057B9 /* DiscoverViewModelOutputProtocol.swift */,
+			);
+			path = DiscoverViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,16 +565,22 @@
 				C0565CFB2D501ED300496462 /* DetailsViewController.swift in Sources */,
 				C0565CD62D4D142000496462 /* OnboardMockData.swift in Sources */,
 				C0565CD82D4D537600496462 /* String+Extension.swift in Sources */,
+				C06812122D50D906002057B9 /* DiscoverTableViewCell.swift in Sources */,
+				C06812142D50DB3B002057B9 /* CategoryNewsModel.swift in Sources */,
 				C0565CC92D4CF0FC00496462 /* UIView+Extension.swift in Sources */,
+				C06812172D50DDC4002057B9 /* DiscoverViewModel.swift in Sources */,
 				C0565CB62D4BEA2900496462 /* MockData.swift in Sources */,
 				C0565CE32D4D5BC800496462 /* ServiceManager.swift in Sources */,
 				C0565CBF2D4BF4E400496462 /* RecentCollectionViewCell.swift in Sources */,
+				C06812192D50DDD4002057B9 /* DiscoverViewModelInputProtocol.swift in Sources */,
 				C0565CC42D4CE45500496462 /* HomeCollectionReusableView.swift in Sources */,
 				C0565C832D4BBE7900496462 /* AppDelegate.swift in Sources */,
 				C0565CED2D4E2B4B00496462 /* UIViewController+Extension.swift in Sources */,
 				C0565C852D4BBE7900496462 /* SceneDelegate.swift in Sources */,
 				C0565CF52D4E9C4D00496462 /* Routes.swift in Sources */,
 				C0565CEB2D4E275800496462 /* HomeProtocolOutPut.swift in Sources */,
+				C068121B2D50DDEE002057B9 /* DiscoverViewModelOutputProtocol.swift in Sources */,
+				C068120F2D50D59E002057B9 /* DiscoverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

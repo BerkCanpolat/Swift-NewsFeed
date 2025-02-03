@@ -310,18 +310,110 @@
         <!--Discover-->
         <scene sceneID="iaV-Rv-wL4">
             <objects>
-                <viewController id="cuh-AG-9wE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscoverViewController" id="cuh-AG-9wE" customClass="DiscoverViewController" customModule="Swift_NewsFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ca2-AL-TqA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NC-TS-7eR">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <items>
+                                    <navigationItem id="F0v-hb-lhE">
+                                        <nil key="title"/>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="YHo-K9-eZc">
+                                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="8Na-qg-mlR">
+                                                <rect key="frame" x="16" y="5.6666666666666679" width="355" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <segments>
+                                                    <segment title="Business"/>
+                                                    <segment title="Health"/>
+                                                    <segment title="Science"/>
+                                                    <segment title="Sports"/>
+                                                    <segment title="General"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="cagetorySegmentedButton:" destination="cuh-AG-9wE" eventType="valueChanged" id="eCD-B1-dZq"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="155" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KPS-G6-Amb">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DiscoverTableViewCell" rowHeight="155" id="sVa-C9-tFV" customClass="DiscoverTableViewCell" customModule="Swift_NewsFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="155"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sVa-C9-tFV" id="ufh-3L-x3N">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="155"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zyi-Hj-heE">
+                                                    <rect key="frame" x="259" y="0.0" width="134" height="155"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="155" id="g78-va-rqc"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BBC News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcR-az-POz">
+                                                    <rect key="frame" x="0.0" y="140" width="59" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zL6-NR-gyf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="251" height="83.666666666666671"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="251" id="0rp-uV-OyN"/>
+                                                    </constraints>
+                                                    <string key="text">Label sdfasdf asdfadsf asdfadsfdsa dfdf dfdfdfdf dfdfdfdfdfdfd dfdfdfasdfasdfasdfasdfasfadsdfasdfsfdsfdsfdsfsdfa asdfasdfadsfasdfdsafdsafadsfasfasdf</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zyi-Hj-heE" firstAttribute="top" secondItem="ufh-3L-x3N" secondAttribute="top" id="1Kw-je-ewr"/>
+                                                <constraint firstItem="Zyi-Hj-heE" firstAttribute="leading" secondItem="zL6-NR-gyf" secondAttribute="trailing" constant="8" id="2eW-YV-baH"/>
+                                                <constraint firstItem="JcR-az-POz" firstAttribute="leading" secondItem="ufh-3L-x3N" secondAttribute="leading" id="80O-ms-JEu"/>
+                                                <constraint firstAttribute="bottom" secondItem="Zyi-Hj-heE" secondAttribute="bottom" id="Bs5-7O-QXS"/>
+                                                <constraint firstItem="zL6-NR-gyf" firstAttribute="leading" secondItem="ufh-3L-x3N" secondAttribute="leading" id="Dby-NS-raR"/>
+                                                <constraint firstAttribute="bottom" secondItem="JcR-az-POz" secondAttribute="bottom" id="JdQ-aw-S3T"/>
+                                                <constraint firstItem="zL6-NR-gyf" firstAttribute="top" secondItem="ufh-3L-x3N" secondAttribute="top" id="T2u-lA-SFj"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zyi-Hj-heE" secondAttribute="trailing" id="pZC-VI-MAH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorLabel" destination="JcR-az-POz" id="HRn-gZ-y9K"/>
+                                            <outlet property="categoryImageView" destination="Zyi-Hj-heE" id="fiY-rd-bZ1"/>
+                                            <outlet property="titleLabel" destination="zL6-NR-gyf" id="vCJ-sK-99R"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9x7-pJ-ZFl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1NC-TS-7eR" firstAttribute="top" secondItem="9x7-pJ-ZFl" secondAttribute="top" id="8ad-rS-Ttp"/>
+                            <constraint firstItem="1NC-TS-7eR" firstAttribute="leading" secondItem="9x7-pJ-ZFl" secondAttribute="leading" id="FXK-bm-oS4"/>
+                            <constraint firstItem="9x7-pJ-ZFl" firstAttribute="trailing" secondItem="KPS-G6-Amb" secondAttribute="trailing" id="Vlq-LV-5h6"/>
+                            <constraint firstItem="1NC-TS-7eR" firstAttribute="trailing" secondItem="9x7-pJ-ZFl" secondAttribute="trailing" id="kHe-NQ-AZw"/>
+                            <constraint firstItem="KPS-G6-Amb" firstAttribute="top" secondItem="1NC-TS-7eR" secondAttribute="bottom" id="mMQ-QS-AXK"/>
+                            <constraint firstItem="9x7-pJ-ZFl" firstAttribute="bottom" secondItem="KPS-G6-Amb" secondAttribute="bottom" id="neY-io-xdB"/>
+                            <constraint firstItem="KPS-G6-Amb" firstAttribute="leading" secondItem="9x7-pJ-ZFl" secondAttribute="leading" id="oL1-u9-Ouv"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="safari" catalog="system" id="sql-CK-dqb"/>
+                    <connections>
+                        <outlet property="categorySegmented" destination="8Na-qg-mlR" id="u3o-0T-lNJ"/>
+                        <outlet property="tableView" destination="KPS-G6-Amb" id="kp5-eZ-P5e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QnE-1P-pzx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1422" y="765"/>
+            <point key="canvasLocation" x="1420.6106870229007" y="764.78873239436621"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Nzx-me-ciW">
