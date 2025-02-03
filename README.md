@@ -20,6 +20,12 @@ Technologies Used:
 
 
 
+
+
+
+
+
+
 Swift-NewsFeed - Türkçe
 
 Bu proje, MVVM mimarisi, PROTOCOL (input, output) ve dependency injection kullanılarak geliştirilmiş bir haber uygulamasıdır. Kullanıcı dostu bir arayüzle, kullanıcılar haberleri kolayca takip edebilirler. Uygulama, Kingfisher ve ProgressHUD gibi popüler paketlerle desteklenmiştir.
