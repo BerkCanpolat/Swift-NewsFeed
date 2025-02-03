@@ -1,4 +1,4 @@
-Swift-NewsFeed
+Swift-NewsFeed - English
 
 This project is a news application developed using the MVVM architecture, PROTOCOL (input, output), and dependency injection. With a user-friendly interface, users can easily follow the latest news. The app is supported by popular packages such as Kingfisher and ProgressHUD.
 
