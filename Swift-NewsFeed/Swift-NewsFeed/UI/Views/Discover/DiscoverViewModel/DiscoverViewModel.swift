@@ -9,11 +9,11 @@ import Foundation
 
 class DiscoverViewModel: DiscoverViewModelInputProtocol {
     
-    var businessCategory: [SourceCategory] = []
-    var healthCategory: [SourceCategory] = []
-    var scienceCategory: [SourceCategory] = []
-    var sportsCategory: [SourceCategory] = []
-    var generalCategory: [SourceCategory] = []
+    var businessCategory: [Article] = []
+    var healthCategory: [Article] = []
+    var scienceCategory: [Article] = []
+    var sportsCategory: [Article] = []
+    var generalCategory: [Article] = []
     
     weak var output: DiscoverViewModelOutputProtocol?
     private let serviceManager: ServiceManagerProtocol
@@ -26,7 +26,7 @@ class DiscoverViewModel: DiscoverViewModelInputProtocol {
         serviceManager.getCategoriesBusiness { result in
             switch result {
             case .success(let category):
-                self.businessCategory = category.sources ?? []
+                self.businessCategory = category.articles ?? []
                 self.output?.didFetchBusinessCategory(business: category)
             case .failure(let error):
                 self.output?.didFetchCategoryError(error: error)
@@ -38,7 +38,7 @@ class DiscoverViewModel: DiscoverViewModelInputProtocol {
         serviceManager.getCategoriesHealth { result in
             switch result {
             case .success(let healt):
-                self.healthCategory = healt.sources ?? []
+                self.healthCategory = healt.articles ?? []
                 self.output?.didFetchHealthCategory(healtH: healt)
             case .failure(let error):
                 self.output?.didFetchCategoryError(error: error)
@@ -50,7 +50,7 @@ class DiscoverViewModel: DiscoverViewModelInputProtocol {
         serviceManager.getCategoriesSciense { result in
             switch result {
             case .success(let science):
-                self.scienceCategory = science.sources ?? []
+                self.scienceCategory = science.articles ?? []
                 self.output?.didFetchScienceCategory(science: science)
             case .failure(let error):
                 self.output?.didFetchCategoryError(error: error)
@@ -62,7 +62,7 @@ class DiscoverViewModel: DiscoverViewModelInputProtocol {
         serviceManager.getCategoriesSports { result in
             switch result {
             case .success(let sports):
-                self.sportsCategory = sports.sources ?? []
+                self.sportsCategory = sports.articles ?? []
                 self.output?.didFetchSportsCategory(sports: sports)
             case .failure(let error):
                 self.output?.didFetchCategoryError(error: error)
@@ -74,7 +74,7 @@ class DiscoverViewModel: DiscoverViewModelInputProtocol {
         serviceManager.getCategoriesGeneral { result in
             switch result {
             case .success(let general):
-                self.generalCategory = general.sources ?? []
+                self.generalCategory = general.articles ?? []
                 self.output?.didFetchGeneralCategory(general: general)
             case .failure(let error):
                 self.output?.didFetchCategoryError(error: error)

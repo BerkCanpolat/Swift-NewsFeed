@@ -41,10 +41,13 @@
 		C0565CFB2D501ED300496462 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0565CFA2D501ED300496462 /* DetailsViewController.swift */; };
 		C068120F2D50D59E002057B9 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068120E2D50D59E002057B9 /* DiscoverViewController.swift */; };
 		C06812122D50D906002057B9 /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06812112D50D906002057B9 /* DiscoverTableViewCell.swift */; };
-		C06812142D50DB3B002057B9 /* CategoryNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06812132D50DB3B002057B9 /* CategoryNewsModel.swift */; };
 		C06812172D50DDC4002057B9 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06812162D50DDC4002057B9 /* DiscoverViewModel.swift */; };
 		C06812192D50DDD4002057B9 /* DiscoverViewModelInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06812182D50DDD4002057B9 /* DiscoverViewModelInputProtocol.swift */; };
 		C068121B2D50DDEE002057B9 /* DiscoverViewModelOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068121A2D50DDEE002057B9 /* DiscoverViewModelOutputProtocol.swift */; };
+		C068121F2D51363C002057B9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068121E2D51363C002057B9 /* SearchViewController.swift */; };
+		C06812212D51393E002057B9 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06812202D51393E002057B9 /* SearchTableViewCell.swift */; };
+		C06812242D513B47002057B9 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06812232D513B47002057B9 /* SearchViewModel.swift */; };
+		C06812272D514782002057B9 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = C06812262D514782002057B9 /* ProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,10 +105,12 @@
 		C0565CFA2D501ED300496462 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C068120E2D50D59E002057B9 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		C06812112D50D906002057B9 /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
-		C06812132D50DB3B002057B9 /* CategoryNewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewsModel.swift; sourceTree = "<group>"; };
 		C06812162D50DDC4002057B9 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 		C06812182D50DDD4002057B9 /* DiscoverViewModelInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModelInputProtocol.swift; sourceTree = "<group>"; };
 		C068121A2D50DDEE002057B9 /* DiscoverViewModelOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModelOutputProtocol.swift; sourceTree = "<group>"; };
+		C068121E2D51363C002057B9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C06812202D51393E002057B9 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		C06812232D513B47002057B9 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0565CF82D4E9D0C00496462 /* Kingfisher in Frameworks */,
+				C06812272D514782002057B9 /* ProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +218,6 @@
 				C0565CB52D4BEA2900496462 /* MockData.swift */,
 				C0565CD52D4D142000496462 /* OnboardMockData.swift */,
 				C0565CEE2D4E390700496462 /* NewsModel.swift */,
-				C06812132D50DB3B002057B9 /* CategoryNewsModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 		C0565CC02D4BF69300496462 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C068121D2D513628002057B9 /* Search */,
 				C068120D2D50D590002057B9 /* Discover */,
 				C0565CF92D501EC400496462 /* Details */,
 				C0565CCE2D4D136200496462 /* Onboard */,
@@ -399,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				C06812112D50D906002057B9 /* DiscoverTableViewCell.swift */,
+				C06812202D51393E002057B9 /* SearchTableViewCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -411,6 +418,23 @@
 				C068121A2D50DDEE002057B9 /* DiscoverViewModelOutputProtocol.swift */,
 			);
 			path = DiscoverViewModel;
+			sourceTree = "<group>";
+		};
+		C068121D2D513628002057B9 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				C06812222D513B3A002057B9 /* ViewModel */,
+				C068121E2D51363C002057B9 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		C06812222D513B3A002057B9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C06812232D513B47002057B9 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +455,7 @@
 			name = "Swift-NewsFeed";
 			packageProductDependencies = (
 				C0565CF72D4E9D0C00496462 /* Kingfisher */,
+				C06812262D514782002057B9 /* ProgressHUD */,
 			);
 			productName = "Swift-NewsFeed";
 			productReference = C0565C7F2D4BBE7900496462 /* Swift-NewsFeed.app */;
@@ -506,6 +531,7 @@
 			mainGroup = C0565C762D4BBE7900496462;
 			packageReferences = (
 				C0565CF62D4E9D0C00496462 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C06812252D514782002057B9 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 			);
 			productRefGroup = C0565C802D4BBE7900496462 /* Products */;
 			projectDirPath = "";
@@ -551,6 +577,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C06812242D513B47002057B9 /* SearchViewModel.swift in Sources */,
 				C0565CD42D4D13D100496462 /* OnboardCollectionViewCell.swift in Sources */,
 				C0565CE62D4E26FB00496462 /* HomeViewModel.swift in Sources */,
 				C0565CE92D4E272000496462 /* HomeProtocolInput.swift in Sources */,
@@ -558,15 +585,16 @@
 				C0565C872D4BBE7900496462 /* Home.swift in Sources */,
 				C0565CCC2D4CF19B00496462 /* CardView.swift in Sources */,
 				C0565CEF2D4E390700496462 /* NewsModel.swift in Sources */,
+				C068121F2D51363C002057B9 /* SearchViewController.swift in Sources */,
 				C0565CF12D4E3AC700496462 /* ApiResponse.swift in Sources */,
 				C0565CE12D4D547200496462 /* AppError.swift in Sources */,
 				C0565CBD2D4BF4D400496462 /* TrendingCollectionViewCell.swift in Sources */,
 				C0565CDF2D4D541B00496462 /* Method.swift in Sources */,
 				C0565CFB2D501ED300496462 /* DetailsViewController.swift in Sources */,
+				C06812212D51393E002057B9 /* SearchTableViewCell.swift in Sources */,
 				C0565CD62D4D142000496462 /* OnboardMockData.swift in Sources */,
 				C0565CD82D4D537600496462 /* String+Extension.swift in Sources */,
 				C06812122D50D906002057B9 /* DiscoverTableViewCell.swift in Sources */,
-				C06812142D50DB3B002057B9 /* CategoryNewsModel.swift in Sources */,
 				C0565CC92D4CF0FC00496462 /* UIView+Extension.swift in Sources */,
 				C06812172D50DDC4002057B9 /* DiscoverViewModel.swift in Sources */,
 				C0565CB62D4BEA2900496462 /* MockData.swift in Sources */,
@@ -937,6 +965,14 @@
 				minimumVersion = 8.1.4;
 			};
 		};
+		C06812252D514782002057B9 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -944,6 +980,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C0565CF62D4E9D0C00496462 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		C06812262D514782002057B9 /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C06812252D514782002057B9 /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

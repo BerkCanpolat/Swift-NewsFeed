@@ -62,6 +62,11 @@ class OnboardViewController: UIViewController {
                         let discoverViewModel = DiscoverViewModel(serviceManager: serviceManager)
                         discoverVC.configure(viewModel: discoverViewModel)
                     }
+                    
+                    if let searchVC = viewController as? SearchViewController {
+                        let searchViewModel = SearchViewModel(serviceManager: serviceManager)
+                        searchVC.configure(viewModel: searchViewModel)
+                    }
                 }
             }
 

@@ -16,11 +16,12 @@ struct PostModel: Decodable {
 protocol ServiceManagerProtocol {
     func getTopHeadlines(completin: @escaping(Result<News,Error>) -> Void)
     func fetBBCNews(completion: @escaping (Result<News, any Error>) -> Void)
-    func getCategoriesBusiness(completion: @escaping (Result<CategoryNews, any Error>) -> Void)
-    func getCategoriesHealth(completion: @escaping (Result<CategoryNews, any Error>) -> Void)
-    func getCategoriesSciense(completion: @escaping (Result<CategoryNews, any Error>) -> Void)
-    func getCategoriesSports(completion: @escaping (Result<CategoryNews, any Error>) -> Void)
-    func getCategoriesGeneral(completion: @escaping (Result<CategoryNews, any Error>) -> Void)
+    func getCategoriesBusiness(completion: @escaping (Result<News, any Error>) -> Void)
+    func getCategoriesHealth(completion: @escaping (Result<News, any Error>) -> Void)
+    func getCategoriesSciense(completion: @escaping (Result<News, any Error>) -> Void)
+    func getCategoriesSports(completion: @escaping (Result<News, any Error>) -> Void)
+    func getCategoriesGeneral(completion: @escaping (Result<News, any Error>) -> Void)
+    func getSearchNews(search: String,completion: @escaping (Result<News, any Error>) -> Void)
 }
 
 class ServiceManager: ServiceManagerProtocol {
@@ -41,24 +42,28 @@ class ServiceManager: ServiceManagerProtocol {
         request(route: .topHeadlinesSources(sources: "bbc-news"), method: .get, completion: completion)
     }
     
-    func getCategoriesBusiness(completion: @escaping (Result<CategoryNews, any Error>) -> Void) {
+    func getCategoriesBusiness(completion: @escaping (Result<News, any Error>) -> Void) {
         request(route: .categoriesNews(category: "business"), method: .get, completion: completion)
     }
     
-    func getCategoriesHealth(completion: @escaping (Result<CategoryNews, any Error>) -> Void) {
+    func getCategoriesHealth(completion: @escaping (Result<News, any Error>) -> Void) {
         request(route: .categoriesNews(category: "health"), method: .get, completion: completion)
     }
     
-    func getCategoriesSciense(completion: @escaping (Result<CategoryNews, any Error>) -> Void) {
+    func getCategoriesSciense(completion: @escaping (Result<News, any Error>) -> Void) {
         request(route: .categoriesNews(category: "science"), method: .get, completion: completion)
     }
     
-    func getCategoriesSports(completion: @escaping (Result<CategoryNews, any Error>) -> Void) {
+    func getCategoriesSports(completion: @escaping (Result<News, any Error>) -> Void) {
         request(route: .categoriesNews(category: "sports"), method: .get, completion: completion)
     }
     
-    func getCategoriesGeneral(completion: @escaping (Result<CategoryNews, any Error>) -> Void) {
+    func getCategoriesGeneral(completion: @escaping (Result<News, any Error>) -> Void) {
         request(route: .categoriesNews(category: "general"), method: .get, completion: completion)
+    }
+    
+    func getSearchNews(search: String,completion: @escaping (Result<News, any Error>) -> Void) {
+        request(route: .searchNews(search: search), method: .get, completion: completion)
     }
     
     
@@ -73,7 +78,7 @@ class ServiceManager: ServiceManagerProtocol {
             if let data = data {
                 result = .success(data)
                 let responseString = String(data: data, encoding: .utf8) ?? ""
-                //print("Response Json Data: \(responseString)")
+                print("Response Json Data: \(responseString)")
             } else if let error = error {
                 result = .failure(error)
                 print("Request error: \(error.localizedDescription)")
@@ -101,7 +106,6 @@ class ServiceManager: ServiceManagerProtocol {
             do {
                  let decodedData = try jsonDecode.decode(T.self, from: data)
                 completion(.success(decodedData))
-                print("DATALARIM GELDİ LA GARDAŞ -------------------------------------------------------------------------------------")
                  } catch {
                     print("Decoding Hatası: \(error.localizedDescription)")
                     completion(.failure(AppError.errorDecoding))
@@ -117,9 +121,7 @@ class ServiceManager: ServiceManagerProtocol {
     private func createRequest(route: Route, method: Method, parameters: [String:Any]? = nil) -> URLRequest? {
         let urlString = Route.baseUrl + route.description
         guard let url = urlString.asUrl else { return nil }
-        print("İLK URELE ------------------------------------------------------------------------------------------: \(url)")
         var urlRequest = URLRequest(url: url)
-        print("İKİNCİ URELE ------------------------------------------------------------------------------------------: \(urlRequest)")
         urlRequest.addValue("Application/Json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = method.rawValue
         

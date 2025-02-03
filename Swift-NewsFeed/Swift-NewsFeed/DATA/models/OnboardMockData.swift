@@ -14,7 +14,7 @@ struct OnboardMockData {
 }
 
 let onboardMoc = [
-    OnboardMockData(image: "onboardDataTwo", title: "Stay Informed, Anytime, Anywhere", secondTitle: "Welcome to our news app, your go-to source for breaking news, exclusive stories and personalized content"),
-    OnboardMockData(image: "onboardData", title: "Be a Knowledgeable Global Citizen", secondTitle: "Welcome to our news app, your go-to source for breaking news, exclusive stories and personalized content"),
-    OnboardMockData(image: "onboardDataTwo", title: "Elevate Your News Experience Now!", secondTitle: "Welcome to our news app, your go-to source for breaking news, exclusive stories and personalized content")
+    OnboardMockData(image: "o1", title: "Stay Informed, Anytime, Anywhere", secondTitle: "Welcome to our news app, your go-to source for breaking news, exclusive stories and personalized content"),
+    OnboardMockData(image: "o2", title: "Be a Knowledgeable Global Citizen", secondTitle: "Welcome to our news app, your go-to source for breaking news, exclusive stories and personalized content"),
+    OnboardMockData(image: "o3", title: "Elevate Your News Experience Now!", secondTitle: "Welcome to our news app, your go-to source for breaking news, exclusive stories and personalized content")
 ]

@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class HomeViewController: UIViewController, HomeProtocolOutPut {
     
     func didFetchBbcData(data: News) {
+        ProgressHUD.dismiss()
         if let articles = data.articles, !articles.isEmpty {
             self.bbcNews = articles
                 DispatchQueue.main.async {
@@ -22,6 +24,7 @@ class HomeViewController: UIViewController, HomeProtocolOutPut {
     
     
     func didFetchData(data: News) {
+        ProgressHUD.dismiss()
         if let articles = data.articles, !articles.isEmpty {
                 self.topHeadlines = articles
                 DispatchQueue.main.async {
@@ -33,6 +36,7 @@ class HomeViewController: UIViewController, HomeProtocolOutPut {
     }
     
     func didFetchErro(error: any Error) {
+        ProgressHUD.dismiss()
         print("Protocol outputunun controllerinde bir hata: \(error.localizedDescription)")
     }
     
@@ -50,6 +54,7 @@ class HomeViewController: UIViewController, HomeProtocolOutPut {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        ProgressHUD.animate()
         viewModel?.fetchTopHeadlines()
         viewModel?.fetchBBCNews()
         collectionView.collectionViewLayout = mainLayout()
@@ -151,12 +156,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: print("Top Headlines verisi sayısı: \(topHeadlines.count)")
-            return topHeadlines.count
+        case 0: return topHeadlines.count
                
-        case 1: 
-               print("BBC News verisi sayısı: \(bbcNews.count)")
-               return bbcNews.count
+        case 1: return bbcNews.count
             
         default:
             return 0

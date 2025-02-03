@@ -8,10 +8,10 @@
 import Foundation
 
 protocol DiscoverViewModelOutputProtocol: AnyObject {
-    func didFetchBusinessCategory(business: CategoryNews)
-    func didFetchHealthCategory(healtH: CategoryNews)
-    func didFetchScienceCategory(science: CategoryNews)
-    func didFetchSportsCategory(sports: CategoryNews)
-    func didFetchGeneralCategory(general: CategoryNews)
+    func didFetchBusinessCategory(business: News)
+    func didFetchHealthCategory(healtH: News)
+    func didFetchScienceCategory(science: News)
+    func didFetchSportsCategory(sports: News)
+    func didFetchGeneralCategory(general: News)
     func didFetchCategoryError(error: Error)
 }

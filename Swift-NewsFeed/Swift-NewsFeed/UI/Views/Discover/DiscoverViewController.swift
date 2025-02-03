@@ -8,39 +8,39 @@
 import UIKit
 
 class DiscoverViewController: UIViewController, DiscoverViewModelOutputProtocol {
-    func didFetchSportsCategory(sports: CategoryNews) {
-        self.categoryBusiness = sports.sources ?? []
+    func didFetchSportsCategory(sports: News) {
+        self.categoryBusiness = sports.articles ?? []
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
-    func didFetchGeneralCategory(general: CategoryNews) {
-        self.categoryBusiness = general.sources ?? []
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-    
-    
-    func didFetchScienceCategory(science: CategoryNews) {
-        self.categoryBusiness = science.sources ?? []
+    func didFetchGeneralCategory(general: News) {
+        self.categoryBusiness = general.articles ?? []
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
     
-    func didFetchHealthCategory(healtH: CategoryNews) {
-        self.categoryBusiness = healtH.sources ?? []
+    func didFetchScienceCategory(science: News) {
+        self.categoryBusiness = science.articles ?? []
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
     
-    func didFetchBusinessCategory(business: CategoryNews) {
-        self.categoryBusiness = business.sources ?? []
+    func didFetchHealthCategory(healtH: News) {
+        self.categoryBusiness = healtH.articles ?? []
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    
+    func didFetchBusinessCategory(business: News) {
+        self.categoryBusiness = business.articles ?? []
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -55,8 +55,8 @@ class DiscoverViewController: UIViewController, DiscoverViewModelOutputProtocol 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categorySegmented: UISegmentedControl!
     
-    var categoryBusiness: [SourceCategory] = []
-    var viewModel: DiscoverViewModel?
+    var categoryBusiness: [Article] = []
+    private var viewModel: DiscoverViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()

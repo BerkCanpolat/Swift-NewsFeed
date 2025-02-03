@@ -35,7 +35,6 @@ class HomeViewModel: HomeProtocolInput {
             case .success(let data):
                 self?.output?.didFetchBbcData(data: data)
             case .failure(let error):
-                print("BBC News verisi alınırken hata: \(error)")
                 self?.output?.didFetchErro(error: error)
             }
         }
