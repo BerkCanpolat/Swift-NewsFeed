@@ -16,3 +16,25 @@ Technologies Used:
 - Dependency Injection
 - Kingfisher
 - ProgressHUD
+
+
+
+
+Swift-NewsFeed - Türkçe
+
+Bu proje, MVVM mimarisi, PROTOCOL (input, output) ve dependency injection kullanılarak geliştirilmiş bir haber uygulamasıdır. Kullanıcı dostu bir arayüzle, kullanıcılar haberleri kolayca takip edebilirler. Uygulama, Kingfisher ve ProgressHUD gibi popüler paketlerle desteklenmiştir.
+
+Özellikler:
+Onboarding Ekranı: Kullanıcıları uygulamaya giriş yaparken karşılayan bir onboarding süreci.
+Ana Sayfa: Kullanıcılar, ana sayfada önemli haberleri görebilir ve haber detaylarına erişebilir.
+Keşfet Sayfası: Haberler, farklı kategorilere ayrılmış olup kullanıcılar istedikleri kategoriye göre haberleri keşfedebilir.
+Arama Sayfası: Kullanıcılar, belirli haberleri arayarak daha hızlı erişim sağlayabilir.
+Bu uygulama, service manager ile haber verilerini çekmek ve işlemi protokoller aracılığıyla yönetmek için bir yapı kullanır. Ayrıca görseller için Kingfisher, kullanıcı arayüzü için ProgressHUD gibi yardımcı paketlerle geliştirilmiştir.
+
+Kullanılan Teknolojiler:
+- Swift
+- MVVM
+- Protocol (input/output)
+- Dependency Injection
+- Kingfisher
+- ProgressHUD
