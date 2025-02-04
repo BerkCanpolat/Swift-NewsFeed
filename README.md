@@ -66,4 +66,8 @@ Kullanılan Teknolojiler:
 
 
 
+https://github.com/user-attachments/assets/b05c1666-afd3-453d-818b-43f7c6287129
+
+
+
 
