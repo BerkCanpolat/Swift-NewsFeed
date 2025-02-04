@@ -44,3 +44,11 @@ Kullanılan Teknolojiler:
 - Dependency Injection
 - Kingfisher
 - ProgressHUD
+
+
+
+
+<img width="457" alt="1" src="https://github.com/user-attachments/assets/553de1b6-b959-4cab-953a-1113de7be2c2" />
+
+<img width="457" alt="2" src="https://github.com/user-attachments/assets/f904f7d1-f610-484c-b626-21c54d4d81e7" />
+
